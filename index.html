@@ -1,36 +1,133 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Happy Birthday ❤️</title>
+  <title>For My Love ❤️</title>
+
   <style>
     body {
-      text-align: center;
-      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      margin: 0;
       font-family: Arial;
+      overflow: hidden;
+    }
+
+    /* LOCK SCREEN */
+    #lockScreen {
+      height: 100vh;
+      background: url('bg.png') no-repeat center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lockBox {
+      background: rgba(0,0,0,0.5);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      color: white;
+      backdrop-filter: blur(10px);
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: none;
+      background: pink;
+      color: black;
+      font-weight: bold;
+    }
+
+    /* MAIN SITE */
+    #mainSite {
+      display: none;
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       color: white;
     }
-    h1 {
-      margin-top: 50px;
-      font-size: 40px;
+
+    .page1 {
+      background: url('bg.png') no-repeat center/cover;
     }
-    p {
-      font-size: 20px;
+
+    .page2 {
+      background: url('bg2.png') no-repeat center/cover;
     }
-    img {
-      width: 200px;
-      border-radius: 20px;
-      margin-top: 20px;
+
+    .overlay {
+      background: rgba(0,0,0,0.4);
+      padding: 25px;
+      border-radius: 15px;
     }
   </style>
+
 </head>
+
 <body>
 
-  <h1>Happy Birthday sreeku ❤️</h1>
-  <p>You are the best thing in my life 💖</p>
+  <!-- LOCK SCREEN -->
+  <div id="lockScreen">
+    <div class="lockBox">
+      <h2>Enter My Heart 💖</h2>
+      <p>Only for you 🔐</p>
 
-  <img src="yourphoto.jpg" alt="Her Photo">
+      <input type="password" id="pass" placeholder="Enter password">
 
-  <p>Forever Yours 💫</p>
+      <br>
+      <button onclick="checkPass()">Unlock 💌</button>
+
+      <p id="error" style="color:red;"></p>
+    </div>
+  </div>
+
+  <!-- MAIN WEBSITE -->
+  <div id="mainSite">
+
+    <section class="page1">
+      <div class="overlay">
+        <h1>Happy Birthday Sreekutty ❤️</h1>
+        <p>You are my everything 💖</p>
+      </div>
+    </section>
+
+    <section class="page2">
+      <div class="overlay">
+        <h1>I Love You 💞</h1>
+        <p>Forever & Always ❤️</p>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    function checkPass() {
+      var password = "love123"; // CHANGE THIS
+
+      var input = document.getElementById("pass").value;
+
+      if(input === password) {
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("mainSite").style.display = "block";
+        document.body.style.overflow = "auto";
+      } else {
+        document.getElementById("error").innerHTML = "Wrong password 💔";
+      }
+    }
+  </script>
 
 </body>
 </html>
